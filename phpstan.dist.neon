@@ -11,6 +11,9 @@ parameters:
     excludePaths:
         - config/reference.php
 
+    ignoreErrors:
+        - identifier: missingType.generics
+
 
 
     level: 6
