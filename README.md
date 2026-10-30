@@ -1,3 +1,5 @@
+[![Qualité du code](https://github.com/romyklk/ci-pipeline/actions/workflows/quality.yml/badge.svg)](https://github.com/romyklk/ci-pipeline/actions/workflows/quality.yml)
+
 # Pratiquons CI/CD
 
 ## Description du projet
