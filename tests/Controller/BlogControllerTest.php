@@ -10,10 +10,7 @@
  */
 
 namespace App\Tests\Controller;
-
-use App\Entity\User;
 use App\Pagination\Paginator;
-use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -55,13 +52,5 @@ final class BlogControllerTest extends WebTestCase
             'The xml file displays the right number of posts.'
         );
     }
-
-    /**
-     * This test changes the database contents by creating a new comment. However,
-     * thanks to the DAMADoctrineTestBundle and its PHPUnit listener, all changes
-     * to the database are rolled back when this test completes. This means that
-     * all the application tests begin with the same database contents.
-     */
-
 
 }
