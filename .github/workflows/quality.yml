@@ -52,7 +52,6 @@ jobs:
               run: bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction
 
     test:
-        needs: quality
         runs-on: ubuntu-latest
         steps:
             - name: Récupérer le dépôt
@@ -82,7 +81,7 @@ jobs:
               run: php bin/phpunit --log-junit phpunit-report.xml
 
     test-integration:
-        needs: test
+        needs: [quality, test]
         runs-on: ubuntu-latest
         services:
           mysql:
