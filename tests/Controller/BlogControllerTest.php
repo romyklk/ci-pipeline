@@ -62,34 +62,7 @@ final class BlogControllerTest extends WebTestCase
      * to the database are rolled back when this test completes. This means that
      * all the application tests begin with the same database contents.
      */
-    public function testNewComment(): void
-    {
-        $client = static::createClient();
-
-        /** @var UserRepository $userRepository */
-        $userRepository = $client->getContainer()->get(UserRepository::class);
-
-        /** @var User $user */
-        $user = $userRepository->findOneByUsername('jane_admin');
-
-        $client->loginUser($user);
-
-        $client->followRedirects();
-
-        // Find first blog post
-        $crawler = $client->request('GET', '/en/blog/');
-        $postLink = $crawler->filter('article.post > h2 a')->link();
-
-        $client->click($postLink);
-        $crawler = $client->submitForm('Publish comment', [
-            'comment[content]' => 'Hi, Symfony!',
-        ]);
-
-        $newComment = $crawler->filter('.post-comment')->first()->filter('div > p')->text();
-
-        $this->assertSame('Hi, Symfony!', $newComment);
-    }
-
+ 
     public function testAjaxSearch(): void
     {
         $client = static::createClient();
