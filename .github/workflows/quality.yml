@@ -133,7 +133,7 @@ jobs:
             - name: Exécuter les tests d'intégration
               run: php bin/phpunit
     build-push:
-
+        needs: [test-integration]
         runs-on: ubuntu-latest
         steps:
             - name: Récupérer le dépôt
