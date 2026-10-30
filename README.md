@@ -135,3 +135,6 @@ bin/console doctrine:schema:update --force
 ## Ce qu'il faut retenir avant de continuer
 
 À ce stade, vous disposez d'un projet Symfony fonctionnel, sans workflow CI/CD, mais avec plusieurs outils de qualité déjà installés et configurés : tests (PHPUnit), formatage automatique (PHP CS Fixer), analyse statique (PHPStan), et linters (Twig, YAML, container, entités). Ce sont exactement les briques que nous allons intégrer, une par une, dans un pipeline GitHub Actions au fil des prochains TP.
+
+
+php bin/phpunit --log-junit php-report.xml

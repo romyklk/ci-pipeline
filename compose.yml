@@ -1,0 +1,21 @@
+name: sym-demo-ci-cd
+
+services:
+    apache:
+        build:
+            context: .
+            args:
+                TIMEZONE: ${TIMEZONE:-Europe/Paris}
+        restart: unless-stopped
+        ports:
+            - "${APP_PORT:-8000}:80"
+        environment:
+            APP_ENV: ${APP_ENV:-dev}
+        volumes:
+            - .:/var/www/html
+        networks:
+            - sym-demo-ci-cd
+
+networks:
+    sym-demo-ci-cd:
+        driver: bridge
